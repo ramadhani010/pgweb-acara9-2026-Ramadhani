@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Input Kantor Kecamatan</title>
+</head>
+
+<body>
+    <h2>Form Input</h2>
+
+    <form action="input.php" method="post" onsubmit="return validateForm()">
+        <label for="kecamatan">Kecamatan:</label><br>
+        <input type="text" id="kec" name="kecamatan" value=""><br>
+        <label for="longitude">Longitude:</label><br>
+        <input type="text" id="long" name="longitude" value=""><br>
+        <label for="latitude">Latitude:</label><br>
+        <input type="text" id="lat" name="latitude" value=""><br>
+        <label for="jumlah_pns">Jumlah PNS:</label><br>
+        <input type="number" id="jml_pns" name="jumlah_pns" value=""><br>
+        <label for="alamat">Alamat:</label><br>
+        <input type="text" id="alamat" name="alamat" value=""><br><br>
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <p id="informasi"></p>
+
+    <script>
+        function validateForm() {
+            let jumlah_pns = document.getElementById("jml_pns").value;
+            let text = "";
+
+            if (isNaN(jumlah_pns) || jumlah_pns < 0 || jumlah_pns == "") {
+                text = "Jumlah PNS harus angka dan tidak boleh bernilai negatif";
+
+                document.getElementById("informasi").innerHTML = text;
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

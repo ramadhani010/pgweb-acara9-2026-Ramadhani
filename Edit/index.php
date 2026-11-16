@@ -1,10 +1,15 @@
 <?php
-    $id = $_POST['id'];
-    $kecamatan = $_POST['kecamatan'];
-    $longitude = $_POST['longitude'];
-    $latitude = $_POST['latitude'];
-    $jumlah_pns = $_POST['jumlah_pns'];
-    $alamat = $_POST['alamat'];
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM kantor_kec WHERE id='$id'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    $kecamatan = $row['Kecamatan'];
+    $longitude = $row['Longitude'];
+    $latitude = $row['Latitude'];
+    $jumlah_pns = $row['Jumlah PNS'];
+    $alamat = $row['Alamat'];
 
     $servername = "localhost";
     $username = "root";

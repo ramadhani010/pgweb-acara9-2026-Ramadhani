@@ -12,7 +12,15 @@ $servername = "localhost";
     $sql = "SELECT * FROM kantor_kec";
     $result = $conn->query($sql);
 
-    echo "<h1>Kantor Kecamatan Banyumas</h1>";    
+    echo "<h1>Kantor Kecamatan Banyumas</h1>"; 
+    
+    // Menampilkan peta LeafletJS
+    echo "<iframe src='peta.php'
+    style='width:100%; height:450px; border:none;'>
+    </iframe>";
+
+    // Subjudul tabel
+    echo "<h3>Data Kantor Kecamatan Banyumas</h3>";
     // Input dari modul sebelumnya
     echo "<a href='input/index.html'>Input</a>";
 
@@ -33,8 +41,9 @@ $servername = "localhost";
             "<td>".$row["Latitude"]."</td>".
             "<td>".$row["Jumlah PNS"]."</td>".
             "<td align='right'>".$row["Alamat"]."</td>".
-            "<td><a href=delete.php?id=".$row["id"].">hapus</a></td>".
-            "<td><a href=edit/index.php?id=".$row["id"].">edit</a></td>".
+            "<td><a href='delete.php?id=".$row["id"]."'>hapus</a></td>".
+            "<td><a href='edit/edit.php?id=".$row["id"]."'>edit</a></td>".
+            
             "</tr>";
         }
 
